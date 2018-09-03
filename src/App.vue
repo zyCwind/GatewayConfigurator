@@ -84,7 +84,7 @@
           </el-form-item>
           -->
           <el-form-item prop="panid" :rules="[{ required: true }, { type: 'number' }]">
-            <el-input v-model="editDialog.form.panid" placeholder="编号"></el-input>
+            <el-input v-model.number="editDialog.form.panid" placeholder="编号"></el-input>
           </el-form-item>
           <el-form-item>
             <el-select v-model="editDialog.form.channel" filterable placeholder="信道">
@@ -93,7 +93,7 @@
           </el-form-item>
           <el-form-item>
             <span>功率</span>
-            <el-slider v-model="editDialog.form.power" :min="10" :max="20" :format-tooltip="v => v + 'dbm'"></el-slider>
+            <el-slider v-model="editDialog.form.power" :min="10" :max="20" :format-tooltip="v => v + 'dbm'" show-input></el-slider>
           </el-form-item>
           <el-form-item>
             <el-button @click="() => {send('at+zs?\r\n')}">读取</el-button>
@@ -102,14 +102,14 @@
           <div style="border-bottom: 1px solid rgb(235, 238, 245); margin: -11px 0 11px 0;"></div>
           <el-form-item>
             <span>上报周期</span>
-            <el-slider v-model="editDialog.reportInterval" :min="10" :max="86400" :format-tooltip="v => v + 's'" @change="value => {send('at+ui=' + value + '\r\n')}"></el-slider>
+            <el-slider v-model="editDialog.reportInterval" :min="10" :max="86400" :format-tooltip="v => v + 's'" show-input @change="value => {send('at+ui=' + value + '\r\n')}"></el-slider>
           </el-form-item>
           <el-form-item>
             <el-button @click="() => {send('at+ui?\r\n')}">读取</el-button>
           </el-form-item>
           <el-form-item>
             <span>插座轮询</span>
-            <el-slider v-model="editDialog.interval" :min="10" :max="3600" :format-tooltip="v => v + 's'" @change="value => {send('at+pi=' + value + '\r\n')}"></el-slider>
+            <el-slider v-model="editDialog.interval" :min="10" :max="3600" :format-tooltip="v => v + 's'" show-input @change="value => {send('at+pi=' + value + '\r\n')}"></el-slider>
           </el-form-item>
           <el-form-item>
             <el-button @click="() => {send('at+pi?\r\n')}">读取</el-button>
