@@ -121,7 +121,7 @@
           <el-form-item prop="address" required>
             <el-input v-model="addDeviceDialog.form.address" placeholder="地址"></el-input>
           </el-form-item>
-          <el-form-item prop="id" :rules="[{ required: true }, { type: 'number' }]">
+          <el-form-item prop="id" required>
             <el-input v-model="addDeviceDialog.form.id" placeholder="编号"></el-input>
           </el-form-item>
           <el-form-item prop="name" required>
